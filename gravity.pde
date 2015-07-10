@@ -17,16 +17,20 @@ void setup(){
 
 void draw(){
   //Control
+  background(255);
+  noFill();
+  strokeWeight(10);
   while(angle>360) {angle-=360;}
   while(angle<0) {angle+=360;}
   dx=0.5*sin(angle*PI/180);
   dy=0.5*cos(angle*PI/180);
+  ellipseMode(CENTER);
+  ellipse(x,y,10,10);
   vy=vy+dy;
   y=y+vy;
   vx=vx+dx;
   x=x+vx;
-  background(255);
-  strokeWeight(10);
+ 
   rect(0,0,500,500);
   //y 1
   line(50,50,50,200);
@@ -56,9 +60,6 @@ void draw(){
   line(425,350,475,350);
   //7
   line(200,400,275,400);
-  
-  
-  ellipseMode(CENTER);
   
   //the frame
   if(y>=498){
@@ -180,11 +181,11 @@ void draw(){
     vy=-0.8*vy+1;
   }
   //x5
-  if((x<=250)&&(x>=0)&&(y>=290)&&(y<=300)){
+  if((x<=150)&&(x>=0)&&(y>=290)&&(y<=300)){
     y=290*2-y;
     vy=-0.8*vy-1;
   }
-  if((x<=250)&&(x>=0)&&(y>=300)&&(y<=310)){
+  if((x<=150)&&(x>=0)&&(y>=300)&&(y<=310)){
     y=310*2-y;
     vy=-0.8*vy+1;
   }
@@ -206,7 +207,6 @@ void draw(){
     y=410*2-y;
     vy=-0.8*vy+1;
   }
-  ellipse(x,y,4,4);
   translate(550,550);
   strokeWeight(2);
   rotate(-angle*PI/180);
